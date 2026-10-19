@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 5s
+scrape_configs:
+  - job_name: heart-api
+    metrics_path: /metrics
+    static_configs:
+      # k8s LoadBalancer service (port 80) on Docker Desktop; use host.docker.internal:8000
+      # instead if you only run `docker run -p 8000:8000 heart-api:1.0`.
+      - targets: ["host.docker.internal:80"]

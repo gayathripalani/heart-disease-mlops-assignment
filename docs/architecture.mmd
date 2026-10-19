@@ -1,0 +1,11 @@
+flowchart LR
+  UCI[(UCI dataset zip)] --> DL[scripts/download_data.py] --> CSV[data/processed/heart_clean.csv]
+  CSV --> TR[heart.train: CV + GridSearch]
+  TR --> MLF[(MLflow: sqlite + artifacts)]
+  TR --> MODEL[models/model.joblib]
+  MODEL --> IMG[Docker image heart-api]
+  IMG --> K8S[k8s Deployment + LoadBalancer Service]
+  CLIENT[Client] -->|POST /predict| K8S
+  K8S -->|/metrics| PROM[Prometheus] --> GRAF[Grafana]
+  GH[GitHub Actions: lint, test, train, docker build] -.-> TR
+  GH -.-> IMG
