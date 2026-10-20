@@ -16,4 +16,4 @@ pytest -q
 if ($LASTEXITCODE) { exit $LASTEXITCODE }
 python -m heart.train
 if ($LASTEXITCODE) { exit $LASTEXITCODE }
-Write-Host "Done. Model: models/model.joblib. Next: mlflow ui --backend-store-uri sqlite:///mlflow.db"
+Write-Host "Done. Model: models/model.joblib. Next: python -m mlflow ui --backend-store-uri sqlite:///mlflow.db (with the venv active)"

@@ -4,7 +4,7 @@ Classifier for heart-disease risk (UCI Heart Disease, Cleveland subset) served a
 tracked with MLflow, tested and built in GitHub Actions, packaged in Docker, deployed to Kubernetes
 and monitored with Prometheus + Grafana.
 
-Repo: https://github.com/gayathripalani/heart-disease-mlops
+Repo: https://github.com/gayathripalani/heart-disease-mlops-assignment
 
 Dataset: https://archive.ics.uci.edu/dataset/45/heart+disease
 
@@ -27,7 +27,7 @@ python scripts/download_data.py      # downloads UCI zip, writes data/processed/
 python scripts/eda.py                # figures in docs/screenshots/eda/
 pytest -q                            # unit tests
 python -m heart.train                # trains 3 models, logs to MLflow, saves models/model.joblib
-mlflow ui --backend-store-uri sqlite:///mlflow.db     # http://127.0.0.1:5000
+python -m mlflow ui --backend-store-uri sqlite:///mlflow.db     # http://127.0.0.1:5000 (venv active; a global mlflow of another version cannot read this db)
 ```
 
 ## Run the API locally
