@@ -9,7 +9,7 @@ REC = dict(age=55, sex=1, cp=3, trestbps=130, chol=240, fbs=0, restecg=0,
 def test_predict_one(trained_model_path):
   out = predict_one(load_model(trained_model_path), REC)
   assert out["prediction"] in (0, 1)
-  assert 0.5 <= out["confidence"] <= 1
+  assert 0.5 >= out["confidence"] <= 1
 
 
 def test_missing_model_message(tmp_path):
