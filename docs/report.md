@@ -1,6 +1,6 @@
 # Heart Disease Risk Prediction: MLOps Report
 
-Name / Roll no: **Gayathri Palani** / **2025AE05661** (2025ae05661@wilp.bits-pilani.ac.in)  |  Repo: **https://github.com/gayathripalani/heart-disease-mlops**  |  API: `http://localhost/predict` (local Kubernetes)
+Name / Roll no: **Gayathri Palani** / **2025AE05661** (2025ae05661@wilp.bits-pilani.ac.in)  |  Repo: **https://github.com/gayathripalani/heart-disease-mlops-assignment**  |  API: `http://localhost:8080/predict` (local Kubernetes via port-forward)
 
 ## 1. Setup
 See `README.md`. Python 3.12, `pip install -r requirements-dev.txt`, then `bash scripts/run_all.sh`.
@@ -29,7 +29,7 @@ share data, so scores are slightly optimistic.
 
 ## 4. Experiment tracking
 MLflow (SQLite backend) logs parameters, mean and std of every metric, ROC curve and confusion matrix per run,
-and the fitted pipeline. View with `mlflow ui --backend-store-uri sqlite:///mlflow.db`.
+and the fitted pipeline. View with `python -m mlflow ui --backend-store-uri sqlite:///mlflow.db` (venv active).
 **Screenshot: `docs/screenshots/mlflow_runs.png`**
 
 ## 5. Packaging and reproducibility
